@@ -1,0 +1,11 @@
+class BeanFactory 的init()方法中有以下代码：
+
+      //3.从class目录下获取指定的xml文件
+      //Class.getClassLoader.getResourceAsStream(String path) ：默认则是从ClassPath根下获取，path不能以’/'开头，最终是由ClassLoader获取资源。
+      //ClassPath根是指：模块目录／target/classes ; 因此调试时conf/config.xml 要拷贝至前述目录
+			InputStream ins = classLoader.getResourceAsStream(xml);
+			Document doc = reader.read(ins);
+			Element root = doc.getRootElement();
+			...
+			
+因此调试时conf/config.xml 要拷贝至目录...／target/classes/
