@@ -6,7 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by ljy on 15/5/8.
- * 测试@Compent注解方式定义bean,@Compent位于Class HelloImpl2
+ * 测试三种Bean配置方式之：基于注解的配置。xml文件里的<context:component-scan ...>标签与@Component注释配合使用，其中@Component注释注释于Class HelloImpl2上
+ * 本例里，Class HelloImpl2被配置为Bean，由容器管理
  */
 
 public class HelloTest2 {

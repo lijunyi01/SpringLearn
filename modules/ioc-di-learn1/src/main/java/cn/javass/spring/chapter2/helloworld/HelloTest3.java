@@ -9,7 +9,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by ljy on 15/5/8.
- * 测试@Compent注解方式定义bean,@Compent位于Class HelloImpl2
+ * 测试三种Bean配置方式之：基于注解的配置。@ComponentScan与@Component注释配合使用，其中@Component注释注释于Class HelloImpl3上
+ * 本例里，Class HelloImpl3被配置为Bean，由容器管理
  */
 @ComponentScan(basePackages = "cn.javass.spring.chapter2")
 public class HelloTest3 {
@@ -23,7 +24,7 @@ public class HelloTest3 {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext("cn.javass.spring.chapter2");
         //2、从容器中获取Bean，注意此处完全“面向接口编程，而不是面向实现”
-        HelloApi helloApi = context.getBean("hello2", HelloApi.class);
+        HelloApi helloApi = context.getBean("hello3", HelloApi.class);
         //3、执行业务逻辑
         helloApi.sayHello();
 

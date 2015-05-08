@@ -6,7 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by ljy on 15/5/8.
- * 测试xml方式定义bean
+ * 测试三种Bean配置方式之：基于xml的配置。xml文件里直接定义Bean
+ * 本例里，Class HelloImpl被配置为Bean，由容器管理
  */
 
 public class HelloTest {
