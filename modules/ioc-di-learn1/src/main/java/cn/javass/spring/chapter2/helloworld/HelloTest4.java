@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by ljy on 15/5/8.
  * 测试三种Bean配置方式之：基于java配置类的配置。@Configuration与@Bean注释配合使用，其中@Bean注释注释于方法上
- * 本例里，Class HelloImpl4被配置为Bean，由容器管理
+ * 本例里，Class HelloImpl4被配置为Bean，由容器管理.方法helloImpl4()提供该Bean的实例化逻辑（本例为直接用new方式创建）。
  */
 
 @Configuration
