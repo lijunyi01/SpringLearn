@@ -1,11 +1,8 @@
 package cn.javass.spring.chapter2.helloworld;
 
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by ljy on 15/5/8.
