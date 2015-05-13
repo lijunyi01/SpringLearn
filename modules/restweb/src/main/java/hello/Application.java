@@ -23,6 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 **/
 
 /*
+ * 本class 配合pom.xml实现了web项目的jar包部署（内含嵌入式tomcat），从本类的main()方法启动；
  * 当修改pom.xml并增加class InitWeb 将项目作为普通war包部署于中间件时，本类是无意义的，完全可以删除
  */
 
