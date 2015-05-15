@@ -4,6 +4,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 
 
 /**
@@ -17,7 +18,9 @@ public class ApplicationConfig {
         @Bean
         public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
             PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-            ppc.setLocation(new ClassPathResource("/test.properties"));
+            //ClassPathResource 的根目录在本项目是指resources目录
+            //ppc.setLocation(new ClassPathResource("/test.properties"));
+            ppc.setLocation(new FileSystemResource("/Users/ljy/appconf/s01-scheduling-tasks/test.properties"));
             return ppc;
         }
 
