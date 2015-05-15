@@ -2,10 +2,9 @@ package cn.allcom.ljy.springlean;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
+
 
 /**
  * Created by ljy on 15/5/10.

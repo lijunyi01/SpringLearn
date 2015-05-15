@@ -1,12 +1,12 @@
 package cn.allcom.ljy.springlean.conf;
 
-//import org.junit.Test;
 import cn.allcom.ljy.springlean.Application;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+//import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 
 
@@ -22,7 +22,10 @@ public class ApplicationConfig {
         @Bean
         public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
             PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
+            //ClassPathResource 的根目录在本项目是指resources目录
             ppc.setLocation(new ClassPathResource("/test.properties"));
+            //也可以使用外置于项目的配置文件
+            //ppc.setLocation(new FileSystemResource("/Users/ljy/appconf/...../....properties"));
             return ppc;
         }
 
