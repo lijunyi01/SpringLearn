@@ -17,13 +17,21 @@ public class ScheduledTasks {
     private SysConfig sysConf;
 
     private final long rate=5000;
+
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-//    @Scheduled(fixedRate = 5000)
+    //(fixedRate = ...),等号后只能是常量
+    //@Scheduled(fixedRate = 3000)
     @Scheduled(fixedRate = rate)
     public void reportCurrentTime() {
-        long l=sysConf.getScheduleRate();
-        System.out.print("l is:"+l);
+        long rate2=sysConf.getScheduleRate();
+        System.out.print("rate2 is:"+rate2);
+        System.out.println("The time is now " + dateFormat.format(new Date()));
+    }
+
+    @Scheduled(cron = "0/1 * 16-18 * * MON-THU")
+    //@Scheduled(cron = "0/5 * *  * * ?")
+    public void reportCurrentTime2() {
         System.out.println("The time is now " + dateFormat.format(new Date()));
     }
 
