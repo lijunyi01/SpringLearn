@@ -20,7 +20,7 @@ public class ApplicationConfig {
             PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
             //ClassPathResource 的根目录在本项目是指resources目录
             //ppc.setLocation(new ClassPathResource("/test.properties"));
-            ppc.setLocation(new FileSystemResource("/Users/ljy/appconf/s01-scheduling-tasks/test.properties"));
+            ppc.setLocation(new FileSystemResource("/appconf/s01-scheduling-tasks/test.properties"));
             return ppc;
         }
 
