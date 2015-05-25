@@ -1,0 +1,23 @@
+package allcom.conf;
+
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+@Configuration
+public class MvcConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+//  adds four view controllers
+//  Two of the view controllers reference the view whose name is "home" (defined in home.html),
+//  and another references the view named "hello" (defined in hello.html).
+//  The fourth view controller references another view named "login".
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/").setViewName("home");
+        registry.addViewController("/hello").setViewName("hello");
+        registry.addViewController("/login").setViewName("login");
+    }
+
+}
