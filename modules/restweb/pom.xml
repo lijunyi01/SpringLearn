@@ -15,6 +15,7 @@
         <version>1.2.3.RELEASE</version>
     </parent>
 
+    <!--可行的去除内嵌tomcat,从而不会打包至war包的方法。此方按打出来的包小1/4！-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -27,18 +28,29 @@
             </exclusions>
         </dependency>
 
-        <!-- Servlet -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>7.0.57</version>
+                <artifactId>tomcat-servlet-api</artifactId>
+                <version>7.0.57</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
 
-    <!--<properties>-->
-        <!--<java.version>1.7</java.version>-->
-    <!--</properties>-->
+    <!--spring官方的去除内嵌tomcat,从而不会打包至war包的方法-->
+    <!--<dependencies>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-web</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+    <!--</dependencies>-->
+
+
 
     <properties>
         <start-class>hello.InitWeb</start-class>
