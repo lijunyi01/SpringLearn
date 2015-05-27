@@ -23,6 +23,7 @@
           <file>file://$MODULE_DIR$/src/main/java/allcom/config/MongoConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/allcom/config/SecurityConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/allcom/config/WebMvcConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/helloworld.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -88,8 +89,9 @@
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.5" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:17.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:1.10.8" level="project" />

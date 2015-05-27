@@ -22,8 +22,8 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
       */
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        //加载配置文件类，需要使用@Configuration注解进行标注
-        return new Class<?>[] {ApplicationConfig.class, JpaConfig.class, SecurityConfig.class};
+        //加载配置文件类，需要使用@Configuration注解进行标注；其中XMLConfig.class实现了从xml配置应用上下文
+        return new Class<?>[] {ApplicationConfig.class, JpaConfig.class, SecurityConfig.class, XMLConfig.class};
     }
 
     /*

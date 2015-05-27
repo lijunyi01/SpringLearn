@@ -127,9 +127,21 @@
             <scope>provided</scope>
         </dependency>
         <!-- JSON -->
+        <!--与spring4.1 版匹配的JSON模块版本很重要，太低太高都会导致项目返回json时出错！！！-->
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.4.5</version>
         </dependency>
         <!-- Utilities -->
         <dependency>
