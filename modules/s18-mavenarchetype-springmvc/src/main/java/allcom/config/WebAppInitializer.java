@@ -1,5 +1,6 @@
 package allcom.config;
 
+import allcom.filters.MyFilter1;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -27,11 +28,11 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     }
 
     /*
-      * web上下文
+      * web上下文；其中InterceptorsConfig.class是自定义的从xml配置web上下文，主要配置了各拦截器
       */
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {WebMvcConfig.class};
+        return new Class<?>[] {WebMvcConfig.class,InterceptorsConfig.class};
     }
 
     /*
@@ -45,7 +46,12 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
         DelegatingFilterProxy securityFilterChain = new DelegatingFilterProxy("springSecurityFilterChain");
 
-        return new Filter[] {characterEncodingFilter, securityFilterChain};
+        //自定义的过滤器
+        MyFilter1 myFilter1 = new MyFilter1();
+//        myFilter1.setForcePrintLog(true);
+
+        //加入系统过滤器以及自定义的过滤器
+        return new Filter[] {characterEncodingFilter, securityFilterChain,myFilter1};
     }
 
     @Override
