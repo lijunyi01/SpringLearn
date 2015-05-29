@@ -26,6 +26,7 @@ public class HandlerInterceptor1 extends HandlerInterceptorAdapter {
         if(clientip.equals("127.0.0.1")){
             ret = true;
         }
+        response.sendRedirect("/greeting1");
         return ret;
     }
 

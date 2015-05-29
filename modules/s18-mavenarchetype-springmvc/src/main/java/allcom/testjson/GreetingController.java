@@ -18,6 +18,11 @@ public class GreetingController {
                 String.format(template, name));
     }
 
+    @RequestMapping(value = "/greeting1")
+    public String greeting1() {
+        return "no login";
+    }
+
     @RequestMapping(value = "/greeting2",produces =  "text/json;charset=UTF-8")
      public String greeting2(@RequestParam(value="name", defaultValue="World") String name) {
         return new String("haha:"+name);
