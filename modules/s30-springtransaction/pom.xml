@@ -23,10 +23,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
         </dependency>
+        <!--spring JDBCTemplate依赖的组件 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
+
         <!-- Persistence -->
         <dependency>
             <groupId>mysql</groupId>
