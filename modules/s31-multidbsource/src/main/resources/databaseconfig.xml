@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <value>classpath:jdbc.properties</value>
+        </property>
+    </bean>
+
+    <bean id="dynamicDataSource" class="allcom.db.DynamicDataSource">
+        <!-- 通过key-value的形式来关联数据源 -->
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry key="ds1" value-ref="dataSource1"></entry>
+                <entry key="ds2" value-ref="dataSource2"></entry>
+                <!--<entry key="XPOS" value-ref="xposDataSource"></entry>-->
+                <!--<entry key="CONXPOS" value-ref="conxposDataSource"></entry>-->
+                <!--<entry key="ESPOS" value-ref="esposDataSource"></entry>-->
+            </map>
+        </property>
+        <property name="defaultTargetDataSource" ref="dataSource1">
+        </property>
+    </bean>
+
+    <bean id="dataSource1" destroy-method="close" primary="true"
+          class="com.zaxxer.hikari.HikariDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="autoCommit" value="true" />
+    </bean>
+    <bean id="dataSource2" destroy-method="close"
+          class="com.zaxxer.hikari.HikariDataSource">
+        <property name="driverClassName" value="${jdbc2.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc2.url}" />
+        <property name="username" value="${jdbc2.username}" />
+        <property name="password" value="${jdbc2.password}" />
+        <!--<property name="autoCommit" value="true" />-->
+    </bean>
+
+
+</beans>
