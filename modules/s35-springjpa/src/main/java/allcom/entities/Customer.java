@@ -1,4 +1,4 @@
-package allcom.entity;
+package allcom.entities;
 
 
 import javax.persistence.*;
