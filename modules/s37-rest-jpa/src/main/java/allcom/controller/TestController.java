@@ -58,5 +58,10 @@ public class TestController {
         return new RetMessage(errorCode,errorMessage,retContent);
     }
 
+    @RequestMapping(value = "/errorpage")
+    public String getError(){
+        return "error page!!!";
+    }
+
 //
 }
