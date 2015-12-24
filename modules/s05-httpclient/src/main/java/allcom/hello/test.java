@@ -62,14 +62,9 @@ public class test {
             xml_str = "<?xml version=\"1.0\" encoding=\"utf-8\"?><requesttoken xmlns=\"http://citrix.com/delivery-services/1-0/auth/requesttoken\"><for-service>"+CitrixAuth_realm+"</for-service><for-service-url>"+serviceroot_hint+"</for-service-url><reqtokentemplate /><requested-lifetime>0.08:00:00</requested-lifetime></requesttoken>";
             url = locations;
             url = url.replace("cpicctxdc01.cpic.local", "10.196.37.48");
-            closeableHttpResponse = HttpClient.postXml(url, xml_str, postHeaderMap);
-            //获取请求状态
-            statusCode = HttpClient.getStatusCode(closeableHttpResponse);
-            System.out.println("-----------------------------------------------");
-            System.out.println("statusCode："+statusCode);
-            System.out.println("-----------------------------------------------");
+
             //获取页面内容
-            String entitycontent = HttpClient.getEntitycontent(closeableHttpResponse);
+            String entitycontent = HttpClient.getContentByPostXml(url,xml_str,postHeaderMap);
             System.out.println("entitycontent："+entitycontent);
             System.out.println("-----------------------------------------------");
             locations = dom4j.dom4jvaluebyStringxml(entitycontent).get("ExplicitForms");
@@ -82,20 +77,9 @@ public class test {
             url = locations;
             url = url.replace("cpicctxdc01.cpic.local", "10.196.37.48");
             postHeaderMap.put("Accept", "application/vnd.citrix.requesttokenresponse+xml, text/xml, application/vnd.citrix.authenticateresponse-1+xml");
-            closeableHttpResponse = HttpClient.postXml(url, xml_str, postHeaderMap);
-            //获取请求状态
-            statusCode = HttpClient.getStatusCode(closeableHttpResponse);
-            System.out.println("-----------------------------------------------");
-            System.out.println("statusCode："+statusCode);
-            System.out.println("-----------------------------------------------");
-            //获取页面头信息
-            header_map = HttpClient.getHreader(closeableHttpResponse, "Set-Cookie");
-            for (Map.Entry<String, String> map : header_map.entrySet()) {
-                System.out.println(map.getKey()+":"+map.getValue());
-            }
-            System.out.println("-----------------------------------------------");
+
             //获取页面信息
-            entitycontent = HttpClient.getEntitycontent(closeableHttpResponse);
+            entitycontent = HttpClient.getContentByPostXml(url,xml_str,postHeaderMap);
             System.out.println("entitycontent："+entitycontent);
             System.out.println("-----------------------------------------------");
             locations = "http://10.196.37.48" + dom4j.dom4jvaluebyStringxml(entitycontent).get("PostBack");
@@ -114,14 +98,8 @@ public class test {
             map_5_canshu.put("loginBtn", "Log+On");
             map_5_canshu.put("StateContext", "");
             System.out.println(postHeaderMap);
-            closeableHttpResponse = HttpClient.post(url, map_5_canshu, postHeaderMap);
-            //获取请求状态
-            statusCode = HttpClient.getStatusCode(closeableHttpResponse);
-            System.out.println("-----------------------------------------------");
-            System.out.println("statusCode："+statusCode);
-            System.out.println("-----------------------------------------------");
             //获取页面信息
-            entitycontent = HttpClient.getEntitycontent(closeableHttpResponse);
+            entitycontent = HttpClient.getContentByPost(url, map_5_canshu, postHeaderMap);
             System.out.println("entitycontent："+entitycontent);
             System.out.println("-----------------------------------------------");
 
