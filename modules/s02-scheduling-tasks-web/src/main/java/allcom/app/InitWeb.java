@@ -1,4 +1,5 @@
-package hello;
+package allcom.app;
+import allcom.App;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -9,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
  * 如果利用Spring boot 将项目作为jar包部署的话，是不需要本类的，jar包方式下入口类为Application; war 包方式下，
  * 入口类才变为InitWeb 。两种方式对应的pom.xml是不同的
  */
-@ComponentScan
 @EnableAutoConfiguration
+@ComponentScan(basePackageClasses = App.class)
 public class InitWeb extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
