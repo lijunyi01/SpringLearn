@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import com.allcom.handler.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.text.StrSubstitutor;
@@ -41,26 +42,6 @@ public class LDAPEmbeddedServer {
 
     private static final Logger log = LoggerFactory.getLogger(LDAPEmbeddedServer.class);
 
-//    public static final String PROPERTY_BASE_DN = "ldap.baseDN";
-//    public static final String PROPERTY_BIND_HOST = "ldap.host";
-//    public static final String PROPERTY_BIND_PORT = "ldap.port";
-//    public static final String PROPERTY_LDIF_FILE = "ldap.ldif";
-//    public static final String PROPERTY_SASL_PRINCIPAL = "ldap.saslPrincipal";
-//    public static final String PROPERTY_DSF = "ldap.dsf";
-
-//    private static final String DEFAULT_BASE_DN = "dc=keycloak,dc=org";
-//    private static final String DEFAULT_BIND_HOST = "localhost";
-//    private static final String DEFAULT_BIND_PORT = "10389";
-//    private static final String DEFAULT_LDIF_FILE = "classpath:test-server.ldif";
-//    private static final String PROPERTY_ENABLE_SSL = "enableSSL";
-//    private static final String PROPERTY_KEYSTORE_FILE = "keystoreFile";
-//    private static final String PROPERTY_CERTIFICATE_PASSWORD = "certificatePassword";
-
-//    public static final String DSF_INMEMORY = "mem";
-//    public static final String DSF_FILE = "file";
-//    public static final String DEFAULT_DSF = DSF_FILE;
-
-//    protected Properties defaultProperties;
 
     @Value("${ldap.basedn}")
     protected String baseDN;
@@ -86,6 +67,19 @@ public class LDAPEmbeddedServer {
 
     @Autowired
     protected FileDirectoryServiceFactory fileDirectoryServiceFactory;
+
+    @Autowired
+    protected BindReqHandler bindReqHandler;
+    @Autowired
+    protected BindRespHandler bindRespHandler;
+    @Autowired
+    protected SearchReqHandler searchReqHandler;
+    @Autowired
+    protected SearchResultEntryHandler searchResultEntryHandler;
+    @Autowired
+    protected SearchResultReferenceHandler searchResultReferenceHandler;
+    @Autowired
+    protected SearchResultDoneHandler searchResultDoneHandler;
 
 
 //    public static void main(String[] args) throws Exception {
@@ -144,35 +138,6 @@ public class LDAPEmbeddedServer {
     public LDAPEmbeddedServer(){
     }
 
-//    public LDAPEmbeddedServer(Properties defaultProperties) {
-//        this.defaultProperties = defaultProperties;
-//
-//        this.baseDN = readProperty(PROPERTY_BASE_DN, DEFAULT_BASE_DN);
-//        this.bindHost = readProperty(PROPERTY_BIND_HOST, DEFAULT_BIND_HOST);
-//        String bindPort = readProperty(PROPERTY_BIND_PORT, DEFAULT_BIND_PORT);
-//        this.bindPort = Integer.parseInt(bindPort);
-//        this.ldifFile = readProperty(PROPERTY_LDIF_FILE, DEFAULT_LDIF_FILE);
-//        this.ldapSaslPrincipal = readProperty(PROPERTY_SASL_PRINCIPAL, null);
-//        this.directoryServiceFactory = readProperty(PROPERTY_DSF, DEFAULT_DSF);
-//        this.enableSSL = Boolean.valueOf(readProperty(PROPERTY_ENABLE_SSL, "false"));
-//        this.keystoreFile = readProperty(PROPERTY_KEYSTORE_FILE, null);
-//        this.certPassword = readProperty(PROPERTY_CERTIFICATE_PASSWORD, null);
-//    }
-
-//    protected String readProperty(String propertyName, String defaultValue) {
-//        String value = System.getProperty(propertyName);
-//
-//        if (value == null || value.isEmpty()) {
-//            value = (String) this.defaultProperties.get(propertyName);
-//        }
-//
-//        if (value == null || value.isEmpty()) {
-//            value = defaultValue;
-//        }
-//
-//        return value;
-//    }
-
 
     public void init() throws Exception {
         log.info("Creating LDAP Directory Service. Config: baseDN=" + baseDN + ", bindHost=" + bindHost + ", bindPort=" + bindPort +
@@ -202,7 +167,6 @@ public class LDAPEmbeddedServer {
 
 //        DirectoryServiceFactory dsf;
 //        if (this.directoryServiceFactory.equals("mem")) {
-//            //todo:暂时注释掉，先只考虑file
 ////            dsf = new InMemoryDirectoryServiceFactory();
 ////            dsf = new FileDirectoryServiceFactory();
 //        } else if (this.directoryServiceFactory.equals("file")) {
@@ -256,6 +220,9 @@ public class LDAPEmbeddedServer {
 
         ldapServer.setServiceName("DefaultLdapServer");
         ldapServer.setSearchBaseDn(this.baseDN);
+        //add by ljy
+        ldapServer.setBindHandlers(bindReqHandler,bindRespHandler);
+        ldapServer.setSearchHandlers(searchReqHandler,searchResultEntryHandler,searchResultReferenceHandler,searchResultDoneHandler);
 
         // Read the transports
         Transport ldap = new TcpTransport(this.bindHost, this.bindPort, 3, 50);
@@ -264,6 +231,8 @@ public class LDAPEmbeddedServer {
             ldapServer.setKeystoreFile(keystoreFile);
             ldapServer.setCertificatePassword(certPassword);
         }
+
+
         ldapServer.addTransports(ldap);
 
         // Associate the DS to this LdapServer
