@@ -1,0 +1,14 @@
+doc 目录下的 ldapserver目录为本应用的配置文件目录。其下的datafile目录下的test-user.ldif文件
+为本应用的数据源，本应用就是从该文件读入数据然后对外提供ldap 服务；其下的instdir目录是本应用配置文件
+指定的数据文件存储目录，instdir目录下的所有内容为本应用程序运行时生成。
+
+test-user.ldif 中需要用到中文时，不能直接填写中文，哪怕utf8编码的也不行，而是要对中文内容进行编码：
+例如：
+sn:: 5p2O5L+K6L2277yP5byA5Y+R6YOo77yP5oqA5pyv5Lit5b+D77yP57u06KeG5L+h5oGv
+对应的信息是： sn: 李俊轶／开发部／技术中心／维视信息
+编码的规则是：对utf8编码的中文字符串进行base64编码，且之前用双冒号:: 表示是编码过的内容
+
+test-user.ldif 中的属性与内容间的空格不能少，例如：dn: uid=bwilson,ou=People,dc=keycloak,dc=org
+
+重新读入ldif文件前要删除instdir目录下的内容，否则客户端读不到新的数据。instdir目录下的内容感觉是缓存，且
+目录下的一些文件存在时新的数据不会被写入（认为已经存在了）
