@@ -38,7 +38,7 @@ public class ScheduledTasks {
 
     //回任务处理
 //    @Scheduled(fixedDelayString = "${jobs.schedule1}")
-    @Scheduled(fixedDelayString = "600000")
+    @Scheduled(fixedDelayString = "6000000")
     public void task1() throws Exception{
         log.info("**********************************************************");
         log.info("************************ 测试ldap请求 **************************");

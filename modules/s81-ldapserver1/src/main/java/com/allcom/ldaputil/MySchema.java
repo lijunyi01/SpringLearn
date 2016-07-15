@@ -22,6 +22,13 @@ public class MySchema implements SchemaObject{
     private String schemaName;
 
     public MySchema(){
+        this.oid = "myschema-oid001";
+        this.isEnabled = true;
+        this.isReadOnly = true;
+        this.isObsolete = false;
+        this.name = "myschema";
+        this.schemaName = "myschema2";
+        this.description = "myschema for outlook";
 
     }
 

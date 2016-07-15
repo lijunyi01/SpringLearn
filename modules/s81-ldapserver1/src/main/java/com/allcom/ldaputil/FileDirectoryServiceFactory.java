@@ -7,8 +7,10 @@ package com.allcom.ldaputil;
 import org.apache.directory.api.ldap.model.constants.SchemaConstants;
 import org.apache.directory.api.ldap.model.schema.LdapComparator;
 import org.apache.directory.api.ldap.model.schema.SchemaManager;
+import org.apache.directory.api.ldap.model.schema.SchemaObject;
 import org.apache.directory.api.ldap.model.schema.comparators.NormalizingComparator;
 import org.apache.directory.api.ldap.model.schema.registries.ComparatorRegistry;
+import org.apache.directory.api.ldap.model.schema.registries.Schema;
 import org.apache.directory.api.ldap.model.schema.registries.SchemaLoader;
 import org.apache.directory.api.ldap.schema.extractor.SchemaLdifExtractor;
 import org.apache.directory.api.ldap.schema.extractor.impl.DefaultSchemaLdifExtractor;
@@ -30,12 +32,14 @@ import org.apache.directory.server.core.partition.ldif.LdifPartition;
 import org.apache.directory.server.i18n.I18n;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -51,6 +55,9 @@ class FileDirectoryServiceFactory implements DirectoryServiceFactory {
 
     @Value("${ldap.instancedir}")
     protected String instanceDir;
+
+    @Autowired
+    protected MySchema mySchema;
 
 
     /** The directory service. */
@@ -176,10 +183,19 @@ class FileDirectoryServiceFactory implements DirectoryServiceFactory {
         SchemaLoader loader = new LdifSchemaLoader( schemaRepository );
         SchemaManager schemaManager = new DefaultSchemaManager( loader );
 
+        //add by ljy
+//        schemaManager.add(mySchema);
+
         // We have to load the schema now, otherwise we won't be able
         // to initialize the Partitions, as we won't be able to parse
         // and normalize their suffix Dn
         schemaManager.loadAllEnabled();
+
+        Collection<Schema> schemaCollection = schemaManager.getAllSchemas();
+        for(Schema schema:schemaCollection){
+            log.debug("schema:"+schema.toString());
+        }
+
 
         // Tell all the normalizer comparators that they should not normalize anything
         ComparatorRegistry comparatorRegistry = schemaManager.getComparatorRegistry();

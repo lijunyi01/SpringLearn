@@ -117,6 +117,9 @@ public class SearchReqHandler extends LdapRequestHandler<SearchRequest> {
             switch ( req.getType() )
             {
                 case SEARCH_REQUEST:
+                    if(req.getBase().isEmpty()){
+                        req.setBase(new Dn("dc=keycloak,dc=org"));
+                    }
                     handleWithReferrals( session, req );
                     break;
 
@@ -682,6 +685,7 @@ public class SearchReqHandler extends LdapRequestHandler<SearchRequest> {
 
         if ( req.getFilter() instanceof PresenceNode )
         {
+            //test 进入该流程; outlook未进入
             ExprNode filter = req.getFilter();
 
             if ( filter.isSchemaAware() )
@@ -692,6 +696,7 @@ public class SearchReqHandler extends LdapRequestHandler<SearchRequest> {
             }
             else
             {
+                //test 进入该流程
                 String attribute = ( ( PresenceNode ) req.getFilter() ).getAttribute();
                 isObjectClassFilter = attribute.equalsIgnoreCase( SchemaConstants.OBJECT_CLASS_AT )
                         || attribute.equals( SchemaConstants.OBJECT_CLASS_AT_OID );
@@ -727,6 +732,7 @@ public class SearchReqHandler extends LdapRequestHandler<SearchRequest> {
             {
                 // This is a lookup
                 //handleLookup( session, req );
+                //test 进入该分支
 
                 return false;
             }

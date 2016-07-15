@@ -5,6 +5,9 @@ import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 //import com.zaxxer.hikari.HikariDataSource;
 import com.allcom.ldaputil.LDAPEmbeddedServer;
+import com.allcom.ldaputil.MySchema;
+import org.apache.directory.api.ldap.model.schema.SchemaObject;
+import org.apache.directory.api.ldap.model.schema.SchemaObjectType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +20,8 @@ import org.springframework.core.io.FileSystemResource;
 
 //import javax.sql.DataSource;
 import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -75,6 +80,11 @@ public class ApplicationConfig {
     @Bean(initMethod = "execute")
     LDAPEmbeddedServer ldapEmbeddedServer(){
         return new LDAPEmbeddedServer();
+    }
+
+    @Bean
+    MySchema mySchema(){
+        return new MySchema();
     }
 
 

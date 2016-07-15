@@ -5,6 +5,7 @@ package com.allcom.ldaputil;
  * ok
  */
 import java.io.*;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -18,7 +19,9 @@ import org.apache.directory.api.ldap.model.exception.LdapEntryAlreadyExistsExcep
 import org.apache.directory.api.ldap.model.ldif.LdifEntry;
 import org.apache.directory.api.ldap.model.ldif.LdifReader;
 import org.apache.directory.api.ldap.model.schema.SchemaManager;
+import org.apache.directory.api.ldap.model.schema.registries.Schema;
 import org.apache.directory.server.core.DefaultDirectoryService;
+import org.apache.directory.server.core.api.CoreSession;
 import org.apache.directory.server.core.api.DirectoryService;
 import org.apache.directory.server.core.api.partition.Partition;
 import org.apache.directory.server.core.factory.DirectoryServiceFactory;
@@ -185,6 +188,7 @@ public class LDAPEmbeddedServer {
         fileDirectoryServiceFactory.init(dcName + "DS");
 
         SchemaManager schemaManager = service.getSchemaManager();
+//        Collection<Schema> schemas= schemaManager.getAllSchemas();
 
 //        PartitionFactory partitionFactory = dsf.getPartitionFactory();
         PartitionFactory partitionFactory = fileDirectoryServiceFactory.getPartitionFactory();
@@ -273,7 +277,10 @@ public class LDAPEmbeddedServer {
         try {
             for (LdifEntry ldifEntry : ldifReader) {
                 try {
-                    directoryService.getAdminSession().add(new DefaultEntry(directoryService.getSchemaManager(), ldifEntry.getEntry()));
+                    CoreSession coreSession=directoryService.getAdminSession();
+                    DefaultEntry defaultEntry = new DefaultEntry(directoryService.getSchemaManager(), ldifEntry.getEntry());
+                    coreSession.add(defaultEntry);
+                    //directoryService.getAdminSession().add(new DefaultEntry(directoryService.getSchemaManager(), ldifEntry.getEntry()));
                 } catch (LdapEntryAlreadyExistsException ignore) {
                     log.info("Entry " + ldifEntry.getDn() + " already exists. Ignoring");
                 }
