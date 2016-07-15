@@ -1,0 +1,69 @@
+version: 1
+dn: dc=keycloak,dc=org
+objectclass: dcObject
+objectclass: organization
+o: Keycloak
+dc: Keycloak
+
+dn: ou=People,dc=keycloak,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: People
+
+dn: ou=RealmRoles,dc=keycloak,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: RealmRoles
+
+dn: ou=FinanceRoles,dc=keycloak,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: FinanceRoles
+
+dn: uid=jbrown,ou=People,dc=keycloak,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+uid: jbrown
+cn: James
+sn: Brown
+mail: jbrown@keycloak.org
+postalCode: 88441
+userPassword: password
+
+dn: uid=bwilson,ou=People,dc=keycloak,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+uid: bwilson
+cn:: 5p2O5L+K6L22
+sn:: 5p2O5L+K6L2277yP5byA5Y+R6YOo77yP5oqA5pyv5Lit5b+D77yP57u06KeG5L+h5oGv
+mail: bwilson@keycloak.org
+postalCode: 77332
+street: Elm 5
+userPassword: password
+telephoneNumber: 021-51010001
+title:: 5Lqn5ZOB6YOo57uP55CG
+mobile: 18001831657
+ 
+
+dn: cn=ldap-user,ou=RealmRoles,dc=keycloak,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: ldap-user
+member: uid=jbrown,ou=People,dc=keycloak,dc=org
+member: uid=bwilson,ou=People,dc=keycloak,dc=org
+
+dn: cn=ldap-admin,ou=RealmRoles,dc=keycloak,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: ldap-admin
+member: uid=jbrown,ou=People,dc=keycloak,dc=org
+
+dn: cn=accountant,ou=FinanceRoles,dc=keycloak,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: accountant
+member: uid=bwilson,ou=People,dc=keycloak,dc=org
