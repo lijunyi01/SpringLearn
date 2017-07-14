@@ -49,11 +49,5 @@ class ApplicationConfig {
 		return configurator;
 
 	}
-
-
-	@Bean
-	public JwtTokenUtil jwtTokenUtil(){
-    	return new JwtTokenUtil();
-	}
 	
 }
