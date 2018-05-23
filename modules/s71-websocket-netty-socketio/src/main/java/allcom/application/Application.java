@@ -26,8 +26,8 @@ public class Application {
         Configuration configuration = new Configuration();
         configuration.setHostname("192.168.8.100");
         configuration.setPort(8090);
-        configuration.setPingInterval(30000);
-        configuration.setPingTimeout(20000);
+        //configuration.setPingInterval(30000);
+        //configuration.setPingTimeout(20000);
         //configuration.setTransports(Transport.WEBSOCKET);
         configuration.setAuthorizationListener(myAuthorizationListener());
         return configuration;

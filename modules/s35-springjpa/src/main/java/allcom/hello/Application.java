@@ -1,6 +1,8 @@
 package allcom.hello;
 
 import allcom.App;
+import allcom.dao.CustomerRepository;
+import allcom.entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

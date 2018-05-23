@@ -16,7 +16,7 @@ import java.io.IOException;
  * ok
  */
 public class OXMExample {
-    private static final String FILE_NAME = "simplebean.xml";
+    private static final String FILE_NAME = "/Users/ljy/IdeaProjects/SpringLearn/modules/s08-oxmapper/simplebean.xml";
     private SimpleBean simpleBean;
 
     private Marshaller marshaller;

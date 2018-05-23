@@ -24,8 +24,6 @@ class JpaConfig implements TransactionManagementConfigurer {
 
     @Value("${dataSource.driverClassName}")
     private String driver;
-//    @Value("${dataSource.url}")
-//    private String url;
     @Value("${dataSource.username}")
     private String username;
     @Value("${dataSource.password}")
@@ -45,11 +43,6 @@ class JpaConfig implements TransactionManagementConfigurer {
     @Bean
     public DataSource configureDataSource() {
         HikariConfig config = new HikariConfig();
-//        config.setDriverClassName(driver);
-//        config.setJdbcUrl(url);
-//        config.setUsername(username);
-//        config.setPassword(password);
-//        config.setDataSourceClassName(driver);
         config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
         config.addDataSourceProperty("serverName", servername);
         config.addDataSourceProperty("port", port);

@@ -7,10 +7,7 @@ import com.allcom.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +30,13 @@ public class AuthController {
     }
 
     @RequestMapping(value = "${jwt.route.authentication.path}", method = RequestMethod.POST)
+//    public String createAuthenticationToken(
+//            @RequestParam(value="username") String username,@RequestParam(value="password") String password) throws AuthenticationException{
+//        final String token = authService.login(username, password);
+//
+//        // Return the token
+//        return token;
+//    }
     public ResponseEntity<?> createAuthenticationToken(
             @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException{
         final String token = authService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
@@ -40,6 +44,14 @@ public class AuthController {
         // Return the token
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
+
+//    public JwtAuthenticationResponse createAuthenticationToken(
+//            @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException{
+//        final String token = authService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+//
+//        // Return the token
+//        return new JwtAuthenticationResponse(token);
+//    }
 
     @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetAuthenticationToken(

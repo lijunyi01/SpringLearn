@@ -15,7 +15,7 @@ import java.util.Map;
  * ok
  */
 @Repository
-public class MysqlDao {
+public class  MysqlDao {
 
     final JdbcTemplate jdbcTemplate;
 

@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/modules/Auth-service-master" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/ioc-di-learn1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/readpropertyfile" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/restweb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/restwebclient" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s01-scheduling-tasks" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s02-scheduling-tasks-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s05-httpclient" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s05-httpclient/src/main/java/allcom/hello/HttpClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s05-httpclient/src/main/java/allcom/hello/dom4j.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s05-httpclient/src/main/java/allcom/hello/test.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s08-oxmapper" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s11-springmvc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s13-uploadfile" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s16-websecurity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s17-websecurity-jwt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s18-mavenarchetype-springmvc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s19-websecurity-jwt-mysql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s22-websecurity-oauth2-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s23-websecurity-oauth2-client-manual" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s24-websecurity-oauth2-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s30-springtransaction" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s31-multidbsource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s35-springjpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s36-springjpa-multisource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s37-rest-jpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s38-accessjpadatawithrest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s50-springdata-gemfire" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s60-spring-rabbitmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s70-websocket" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s71-websocket-netty-socketio" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s80-ldaptest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s81-ldapserver1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/s90-springbatch" charset="UTF-8" />
+  </component>
 </project>

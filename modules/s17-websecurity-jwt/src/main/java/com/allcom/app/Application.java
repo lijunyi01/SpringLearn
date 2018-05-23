@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackageClasses = App.class)
 @ComponentScan(basePackageClasses = App.class)
 @SpringBootApplication
-@ComponentScan(basePackageClasses = App.class)
 public class Application implements EmbeddedServletContainerCustomizer {
 
 //    private static Logger log = LoggerFactory.getLogger(Application.class);

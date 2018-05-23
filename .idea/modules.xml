@@ -2,7 +2,38 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/modules/Auth-service-master/Auth-Service.iml" filepath="$PROJECT_DIR$/modules/Auth-service-master/Auth-Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/ioc-di-learn1/ioc-di-learn1.iml" filepath="$PROJECT_DIR$/modules/ioc-di-learn1/ioc-di-learn1.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/ioc-reflect/ioc-reflect.iml" filepath="$PROJECT_DIR$/modules/ioc-reflect/ioc-reflect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/readpropertyfile/readpropertyfile.iml" filepath="$PROJECT_DIR$/modules/readpropertyfile/readpropertyfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/restweb/restweb.iml" filepath="$PROJECT_DIR$/modules/restweb/restweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/restwebclient/restwebclient.iml" filepath="$PROJECT_DIR$/modules/restwebclient/restwebclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s01-scheduling-tasks/s01-scheduling-tasks.iml" filepath="$PROJECT_DIR$/modules/s01-scheduling-tasks/s01-scheduling-tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s02-scheduling-tasks-web/s02-scheduling-tasks-web.iml" filepath="$PROJECT_DIR$/modules/s02-scheduling-tasks-web/s02-scheduling-tasks-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s05-httpclient/s05-httpclient.iml" filepath="$PROJECT_DIR$/modules/s05-httpclient/s05-httpclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s08-oxmapper/s08-oxmapper.iml" filepath="$PROJECT_DIR$/modules/s08-oxmapper/s08-oxmapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s11-springmvc/s11-springmvc.iml" filepath="$PROJECT_DIR$/modules/s11-springmvc/s11-springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s13-uploadfile/s13-uploadfile.iml" filepath="$PROJECT_DIR$/modules/s13-uploadfile/s13-uploadfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s16-websecurity/s16-websecurity.iml" filepath="$PROJECT_DIR$/modules/s16-websecurity/s16-websecurity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s17-websecurity-jwt/s17-websecurity-jwt.iml" filepath="$PROJECT_DIR$/modules/s17-websecurity-jwt/s17-websecurity-jwt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s18-mavenarchetype-springmvc/s18-mavenarchetype-springmvc.iml" filepath="$PROJECT_DIR$/modules/s18-mavenarchetype-springmvc/s18-mavenarchetype-springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s19-websecurity-jwt-mysql/s19-websecurity-jwt-mysql.iml" filepath="$PROJECT_DIR$/modules/s19-websecurity-jwt-mysql/s19-websecurity-jwt-mysql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s22-websecurity-oauth2-client/s22-websecurity-oauth2-client.iml" filepath="$PROJECT_DIR$/modules/s22-websecurity-oauth2-client/s22-websecurity-oauth2-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s23-websecurity-oauth2-client-manual/s23-websecurity-oauth2-client-manual.iml" filepath="$PROJECT_DIR$/modules/s23-websecurity-oauth2-client-manual/s23-websecurity-oauth2-client-manual.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s24-websecurity-oauth2-server/s24-websecurity-oauth2-server.iml" filepath="$PROJECT_DIR$/modules/s24-websecurity-oauth2-server/s24-websecurity-oauth2-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s30-springtransaction/s30-springtransaction.iml" filepath="$PROJECT_DIR$/modules/s30-springtransaction/s30-springtransaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s31-multidbsource/s31-multidbsource.iml" filepath="$PROJECT_DIR$/modules/s31-multidbsource/s31-multidbsource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s35-springjpa/s35-springjpa.iml" filepath="$PROJECT_DIR$/modules/s35-springjpa/s35-springjpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s36-springjpa-multisource/s36-springjpa-multisource.iml" filepath="$PROJECT_DIR$/modules/s36-springjpa-multisource/s36-springjpa-multisource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s37-rest-jpa/s37-rest-jpa.iml" filepath="$PROJECT_DIR$/modules/s37-rest-jpa/s37-rest-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s38-accessjpadatawithrest/s38-accessjpadatawithrest.iml" filepath="$PROJECT_DIR$/modules/s38-accessjpadatawithrest/s38-accessjpadatawithrest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s50-springdata-gemfire/s50-springdata-gemfire.iml" filepath="$PROJECT_DIR$/modules/s50-springdata-gemfire/s50-springdata-gemfire.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s60-spring-rabbitmq/s60-spring-rabbitmq.iml" filepath="$PROJECT_DIR$/modules/s60-spring-rabbitmq/s60-spring-rabbitmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s70-websocket/s70-websocket.iml" filepath="$PROJECT_DIR$/modules/s70-websocket/s70-websocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s71-websocket-netty-socketio/s71-websocket-netty-socketio.iml" filepath="$PROJECT_DIR$/modules/s71-websocket-netty-socketio/s71-websocket-netty-socketio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s80-ldaptest/s80-ldaptest.iml" filepath="$PROJECT_DIR$/modules/s80-ldaptest/s80-ldaptest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s81-ldapserver1/s81-ldapserver1.iml" filepath="$PROJECT_DIR$/modules/s81-ldapserver1/s81-ldapserver1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s90-springbatch/s90-springbatch.iml" filepath="$PROJECT_DIR$/modules/s90-springbatch/s90-springbatch.iml" />
     </modules>
   </component>
 </project>

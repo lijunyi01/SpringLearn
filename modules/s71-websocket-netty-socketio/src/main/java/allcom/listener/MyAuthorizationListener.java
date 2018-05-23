@@ -12,8 +12,10 @@ public class MyAuthorizationListener implements AuthorizationListener {
     public boolean isAuthorized(HandshakeData handshakeData) {
         boolean ret = true;
         String a = handshakeData.getAddress().toString();
+        String b = handshakeData.getUrl();
         //此处可以验证连接等
-        System.out.print(a+"\n");
+        System.out.print("in MyAuthorizationListener:"+a+"\n");
+        System.out.print("in MyAuthorizationListener:"+b+"\n");
         return ret;
     }
 }

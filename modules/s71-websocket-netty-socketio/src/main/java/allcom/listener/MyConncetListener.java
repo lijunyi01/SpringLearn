@@ -12,6 +12,8 @@ public class MyConncetListener implements ConnectListener {
     @Override
     public void onConnect(SocketIOClient socketIOClient) {
         //System.out.print(socketIOClient.getSessionId());
+        String a = socketIOClient.getRemoteAddress().toString();
         //System.out.print(socketIOClient.getRemoteAddress().toString());
+        System.out.print("in MyConncetListener:"+a+"\n");
     }
 }

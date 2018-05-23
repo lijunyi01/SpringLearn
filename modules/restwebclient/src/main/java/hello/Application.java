@@ -5,6 +5,17 @@ import org.springframework.web.client.RestTemplate;
 public class Application {
 
     public static void main(String args[]) {
+
+//        String amount = "12.0934";
+//        if(amount.contains(".")){
+//            String tmp[] = amount.split("\\.");
+//            if(tmp[1].length()>2){
+//                amount = tmp[0]+"."+tmp[1].substring(0,2);
+//            }
+//        }
+//        System.out.print(amount);
+
+
         RestTemplate restTemplate = new RestTemplate();
 //        Page page = restTemplate.getForObject("http://graph.facebook.com/pivotalsoftware", Page.class)
 //        System.out.println("Name:    " + page.getName());
