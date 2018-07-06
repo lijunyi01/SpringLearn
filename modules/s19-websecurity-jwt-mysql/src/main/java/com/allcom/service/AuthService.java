@@ -57,7 +57,8 @@ public class AuthService {
         final String rawPassword = userToAdd.getPassword();
         userToAdd.setPassword(encoder.encode(rawPassword));
         userToAdd.setLastPasswordResetDate(new Date());
-        userToAdd.setRoles(asList("ROLE_USER"));
+//        userToAdd.setRoles(asList("ROLE_USER"));
+        userToAdd.setRoles(userToAdd.getRoles());
         saveUser(username,userToAdd.getPassword(),userToAdd.getLastPasswordResetDate(),userToAdd.getRoles(),userToAdd.getEmail());
         if(mysqlDao.findByUsername(username).size()>0){
             return userToAdd;
@@ -67,7 +68,7 @@ public class AuthService {
     }
 
     @Transactional
-    private void saveUser(String userName,String pass, Date lastPasswordResetDate, List<String> roles,String email){
+    void saveUser(String userName,String pass, Date lastPasswordResetDate, List<String> roles,String email){
         mysqlDao.saveToUser(userName,pass,lastPasswordResetDate,email);
         for(String role:roles){
             mysqlDao.saveToUserRole(userName,role);
