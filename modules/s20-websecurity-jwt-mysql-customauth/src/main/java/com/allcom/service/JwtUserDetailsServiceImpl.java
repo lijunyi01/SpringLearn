@@ -24,16 +24,12 @@ import java.util.Map;
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
-//    private final UserRepository userRepository;
     private final MysqlDao mysqlDao;
 
     @Autowired
     public JwtUserDetailsServiceImpl(MysqlDao mysqlDao) {
         this.mysqlDao = mysqlDao;
     }
-//    public JwtUserDetailsServiceImpl(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -68,7 +64,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         if(pass !=null){
             user = new User();
             user.setUsername(username);
-            user.setPassword(pass);
+//            user.setPassword(pass);
             user.setEmail(email);
             user.setLastPasswordResetDate(dt);
             user.setRoles(roles);

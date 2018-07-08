@@ -18,7 +18,7 @@ public class Test2Controller {
         return "role user can access";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') && hasRole('USER')")
     @RequestMapping(value = "/admin")
     public String test3(){
         return "role admin can access";
