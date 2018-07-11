@@ -23,6 +23,8 @@
         <module name="s17-websecurity-jwt" />
         <module name="s18-mavenarchetype-springmvc" />
         <module name="s19-websecurity-jwt-mysql" />
+        <module name="s20-websecurity-jwt-mysql-customauth" />
+        <module name="s21-websecurity-jwt-mysql-resource" />
         <module name="s22-websecurity-oauth2-client" />
         <module name="s23-websecurity-oauth2-client-manual" />
         <module name="s24-websecurity-oauth2-server" />
@@ -62,6 +64,8 @@
       <module name="s17-websecurity-jwt" target="1.8" />
       <module name="s18-mavenarchetype-springmvc" target="1.8" />
       <module name="s19-websecurity-jwt-mysql" target="1.8" />
+      <module name="s20-websecurity-jwt-mysql-customauth" target="1.8" />
+      <module name="s21-websecurity-jwt-mysql-resource" target="1.8" />
       <module name="s22-websecurity-oauth2-client" target="1.8" />
       <module name="s22websecurityoauth2Server" target="1.5" />
       <module name="s22websecurityoauth2server" target="1.5" />
