@@ -85,6 +85,8 @@
         <option value="$PROJECT_DIR$/modules/s23-websecurity-oauth2-client-manual/pom.xml" />
         <option value="$PROJECT_DIR$/modules/s24-websecurity-oauth2-server/pom.xml" />
         <option value="$PROJECT_DIR$/modules/Auth-service-master/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/s20-websecurity-jwt-mysql-customauth/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/s21-websecurity-jwt-mysql-resource/pom.xml" />
       </list>
     </option>
   </component>

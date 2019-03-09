@@ -3,6 +3,7 @@ package com.allcom.customerize;
 import com.allcom.bean.User;
 //import com.allcom.entity.Account;
 import com.allcom.service.AccountService;
+import com.allcom.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;

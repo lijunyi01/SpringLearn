@@ -43,13 +43,13 @@ class ApplicationConfig {
     @Bean
 	public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-		ppc.setLocation(new FileSystemResource("/appconf/s19-websecurity-jwt-mysql/app.properties"));        //JPA的标准配置文件
+		ppc.setLocation(new FileSystemResource("/appconf/s20-websecurity-jwt-mysql-customauth/app.properties"));        //JPA的标准配置文件
 		return ppc;
 	}
 
 	@Bean
 	public static JoranConfigurator readLogbackPropertyFile(){
-		File logbackFile = new File("/appconf/s19-websecurity-jwt-mysql/logback.xml");
+		File logbackFile = new File("/appconf/s20-websecurity-jwt-mysql-customauth/logback.xml");
 		LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
 		JoranConfigurator configurator = new JoranConfigurator();
 		configurator.setContext(lc);

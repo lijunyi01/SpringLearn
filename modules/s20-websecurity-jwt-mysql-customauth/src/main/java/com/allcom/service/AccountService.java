@@ -41,63 +41,94 @@ public class AccountService {
         List<Map<String,Object>> mapList = mysqlDao.findByUsername(userName);
         Date dt = null;
 
-        if(mapList.size()==1){
-            Map<String,Object> map = mapList.get(0);
-//            if(map.get("username")!=null){
-//                u.setUsername(map.get("username").toString());
-//            }
-            u.setUsername(userName);
-            if(map.get("password")!=null){
-                u.setPassword(map.get("password").toString());
+        if(mapList.size()==1) {
+
+            if(!isPasswordOk(userName,password)){
+//        if(!passwordEncoder.matches(password,u.getPassword())) {
+                log.info("pass match failed");
+                return null;
             }
-            if(map.get("lastpasswordresetdate")!=null){
+
+            Map<String, Object> map = mapList.get(0);
+            u.setUsername(userName);
+            if (map.get("lastpasswordresetdate") != null) {
 
                 String lastPasswordResetDate = map.get("lastpasswordresetdate").toString();
-                SimpleDateFormat sdf= new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S");
+                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S");
                 try {
                     dt = sdf.parse(lastPasswordResetDate);
                 } catch (ParseException e) {
-                    e.printStackTrace();
+                    log.error("ParseException:{}", e.toString());
                 }
                 u.setLastPasswordResetDate(dt);
             }
-            if(map.get("email")!=null){
+            if (map.get("email") != null) {
                 u.setEmail(map.get("email").toString());
             }
-//            if(map.get("id")!=null){
-//                try {
-//                    int id = GlobalTools.convertStringToInt(map.get("id").toString());
-//                    u.setId(id);
-//                } catch (ToolLibException e) {
-//                    log.error("ToolLibException:{}",e.toString());
-//                }
-//            }
             u.setRoles(mysqlDao.getRolesByUsername(userName));
 
-        }
-
-//        if (u == null) {
-        if(u.getPassword() == null) {
-            return null;
-        }
-
-        if(!passwordEncoder.matches(password,u.getPassword())) {
-            log.info("pass match failed");
-            return null;
         }
 
         return u;
     }
 
-//    public boolean regist(String userName,String password){
-//        boolean ret = false;
-//        mysqlDao.addUser(userName,passwordEncoder.encode(password));
+    private boolean isPasswordOk(String userName,String password){
+        boolean ret = false;
+        //todo: 实际验证用户名密码
+        ret = true;
+        return ret;
+    }
+
+//    public User authUser(String userName, String password) {
+//        User u = new User();
+//        List<Map<String,Object>> mapList = mysqlDao.findByUsername(userName);
+//        Date dt = null;
 //
-//        List<Map<String,Object>> mapList = mysqlDao.getAccountInfo(userName);
-//        if(mapList.size()>0){
-//            ret = true;
+//        if(mapList.size()==1){
+//            Map<String,Object> map = mapList.get(0);
+////            if(map.get("username")!=null){
+////                u.setUsername(map.get("username").toString());
+////            }
+//            u.setUsername(userName);
+//            if(map.get("password")!=null){
+//                u.setPassword(map.get("password").toString());
+//            }
+//            if(map.get("lastpasswordresetdate")!=null){
+//
+//                String lastPasswordResetDate = map.get("lastpasswordresetdate").toString();
+//                SimpleDateFormat sdf= new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S");
+//                try {
+//                    dt = sdf.parse(lastPasswordResetDate);
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                u.setLastPasswordResetDate(dt);
+//            }
+//            if(map.get("email")!=null){
+//                u.setEmail(map.get("email").toString());
+//            }
+////            if(map.get("id")!=null){
+////                try {
+////                    int id = GlobalTools.convertStringToInt(map.get("id").toString());
+////                    u.setId(id);
+////                } catch (ToolLibException e) {
+////                    log.error("ToolLibException:{}",e.toString());
+////                }
+////            }
+//            u.setRoles(mysqlDao.getRolesByUsername(userName));
+//
 //        }
 //
-//        return ret;
+////        if (u == null) {
+//        if(u.getPassword() == null) {
+//            return null;
+//        }
+//
+//        if(!passwordEncoder.matches(password,u.getPassword())) {
+//            log.info("pass match failed");
+//            return null;
+//        }
+//
+//        return u;
 //    }
 }

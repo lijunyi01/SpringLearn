@@ -18,6 +18,8 @@
       <module fileurl="file://$PROJECT_DIR$/modules/s17-websecurity-jwt/s17-websecurity-jwt.iml" filepath="$PROJECT_DIR$/modules/s17-websecurity-jwt/s17-websecurity-jwt.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/s18-mavenarchetype-springmvc/s18-mavenarchetype-springmvc.iml" filepath="$PROJECT_DIR$/modules/s18-mavenarchetype-springmvc/s18-mavenarchetype-springmvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/s19-websecurity-jwt-mysql/s19-websecurity-jwt-mysql.iml" filepath="$PROJECT_DIR$/modules/s19-websecurity-jwt-mysql/s19-websecurity-jwt-mysql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s20-websecurity-jwt-mysql-customauth/s20-websecurity-jwt-mysql-customauth.iml" filepath="$PROJECT_DIR$/modules/s20-websecurity-jwt-mysql-customauth/s20-websecurity-jwt-mysql-customauth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s21-websecurity-jwt-mysql-resource/s21-websecurity-jwt-mysql-resource.iml" filepath="$PROJECT_DIR$/modules/s21-websecurity-jwt-mysql-resource/s21-websecurity-jwt-mysql-resource.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/s22-websecurity-oauth2-client/s22-websecurity-oauth2-client.iml" filepath="$PROJECT_DIR$/modules/s22-websecurity-oauth2-client/s22-websecurity-oauth2-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/s23-websecurity-oauth2-client-manual/s23-websecurity-oauth2-client-manual.iml" filepath="$PROJECT_DIR$/modules/s23-websecurity-oauth2-client-manual/s23-websecurity-oauth2-client-manual.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/s24-websecurity-oauth2-server/s24-websecurity-oauth2-server.iml" filepath="$PROJECT_DIR$/modules/s24-websecurity-oauth2-server/s24-websecurity-oauth2-server.iml" />

@@ -4,6 +4,8 @@ import com.allcom.bean.User;
 import com.allcom.dao.MysqlDao;
 import com.allcom.security.JwtTokenUtil;
 import com.allcom.security.JwtUser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,8 +18,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 
@@ -27,6 +32,8 @@ import static java.util.Arrays.asList;
  */
 @Service
 public class AuthService {
+    private static Logger log = LoggerFactory.getLogger(AuthService.class);
+
     private AuthenticationManager authenticationManager;
     private UserDetailsService userDetailsService;
     private JwtTokenUtil jwtTokenUtil;
