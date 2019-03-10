@@ -32,6 +32,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
+        // 以下两段差异是有没有.withSockJS()，取决于前端是否使用SockJS，前后需要匹配；本例子自带的前端代码是使用SockJS的；
+        // 但chrome 插件browser websocket client 是不用SockJS的。
+
         stompEndpointRegistry.addEndpoint("/any-socket").setAllowedOrigins("*").addInterceptors(myHandshakeInterceptor).setHandshakeHandler(new DefaultHandshakeHandler() {
             /**
              * 指定握手主体生成规则，后续接收消息时会使用，默认频道为Principal.getName
@@ -46,6 +49,20 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                 return new UserPrincipal((User) attributes.get("user"));
             }
         }).withSockJS();
+//        stompEndpointRegistry.addEndpoint("/any-socket").setAllowedOrigins("*").addInterceptors(myHandshakeInterceptor).setHandshakeHandler(new DefaultHandshakeHandler() {
+//            /**
+//             * 指定握手主体生成规则，后续接收消息时会使用，默认频道为Principal.getName
+//             * @param request
+//             * @param wsHandler
+//             * @param attributes
+//             * @return
+//             */
+//            @Nullable
+//            @Override
+//            protected Principal determineUser(ServerHttpRequest request, WebSocketHandler wsHandler, Map<String, Object> attributes) {
+//                return new UserPrincipal((User) attributes.get("user"));
+//            }
+//        });
     }
 
     @Override
