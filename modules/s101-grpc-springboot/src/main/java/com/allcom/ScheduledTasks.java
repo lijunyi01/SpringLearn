@@ -34,6 +34,7 @@ public class ScheduledTasks {
             System.out.println("response:"+response.getMessage());
         } catch (StatusRuntimeException e) {
             // logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            System.out.println("Exception:" + e.getMessage());
             return;
         }
     }
