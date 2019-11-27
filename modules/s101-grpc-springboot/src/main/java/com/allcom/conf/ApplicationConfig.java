@@ -6,6 +6,7 @@ package com.allcom.conf;
  */
 import com.allcom.grpc.AsyncHelloWorldClient;
 import com.allcom.grpc.BlockHelloWorldClient;
+import com.allcom.grpc.FutureHelloWorldClient;
 import com.allcom.grpc.HelloWorldServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,12 @@ public class ApplicationConfig {
     @Bean
     AsyncHelloWorldClient asyncHelloWorldClient(){
         return new AsyncHelloWorldClient("localhost",50051);
+    }
+
+    // 异步client(Future)
+    @Bean
+    FutureHelloWorldClient futureHelloWorldClient(){
+        return new FutureHelloWorldClient("localhost",50051);
     }
 
 

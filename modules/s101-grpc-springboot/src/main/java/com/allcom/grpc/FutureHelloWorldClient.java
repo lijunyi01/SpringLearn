@@ -26,14 +26,14 @@ import java.util.logging.Logger;
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.
  */
-public class BlockHelloWorldClient {
-    private static final Logger logger = Logger.getLogger(BlockHelloWorldClient.class.getName());
+public class FutureHelloWorldClient {
+    private static final Logger logger = Logger.getLogger(FutureHelloWorldClient.class.getName());
 
     private final ManagedChannel channel;
-    private final GreeterGrpc.GreeterBlockingStub blockingStub;
+    private final GreeterGrpc.GreeterFutureStub futureStub;
 
     /** Construct client connecting to HelloWorld server at {@code host:port}. */
-    public BlockHelloWorldClient(String host, int port) {
+    public FutureHelloWorldClient(String host, int port) {
         this(ManagedChannelBuilder.forAddress(host, port)
                 // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
                 // needing certificates.
@@ -42,20 +42,20 @@ public class BlockHelloWorldClient {
     }
 
     /** Construct client for accessing HelloWorld server using the existing channel. */
-    BlockHelloWorldClient(ManagedChannel channel) {
+    FutureHelloWorldClient(ManagedChannel channel) {
         this.channel = channel;
-        blockingStub = GreeterGrpc.newBlockingStub(channel);
+        futureStub = GreeterGrpc.newFutureStub(channel);
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
                 // Use stderr here since the logger may have been reset by its JVM shutdown hook.
-                System.err.println("*** shutting down gRPC block client since JVM is shutting down");
+                System.err.println("*** shutting down gRPC future client since JVM is shutting down");
                 try {
-                    BlockHelloWorldClient.this.shutdown();
+                    FutureHelloWorldClient.this.shutdown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.err.println("*** block client shut down");
+                System.err.println("*** future client shut down");
             }
         });
     }
@@ -64,8 +64,8 @@ public class BlockHelloWorldClient {
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    public GreeterGrpc.GreeterBlockingStub getBlockingStub(){
-        return this.blockingStub;
+    public GreeterGrpc.GreeterFutureStub getFutureStub(){
+        return this.futureStub;
     }
 
 }

@@ -49,13 +49,13 @@ public class AsyncHelloWorldClient {
             @Override
             public void run() {
                 // Use stderr here since the logger may have been reset by its JVM shutdown hook.
-                System.err.println("*** shutting down gRPC client since JVM is shutting down");
+                System.err.println("*** shutting down gRPC async client since JVM is shutting down");
                 try {
                     AsyncHelloWorldClient.this.shutdown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.err.println("*** client shut down");
+                System.err.println("*** async client shut down");
             }
         });
     }
