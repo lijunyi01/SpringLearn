@@ -4,7 +4,8 @@ package com.allcom.conf;
  * Created by ljy on 16/2/19.
  * ok
  */
-import com.allcom.grpc.HelloWorldClient;
+import com.allcom.grpc.AsyncHelloWorldClient;
+import com.allcom.grpc.BlockHelloWorldClient;
 import com.allcom.grpc.HelloWorldServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +18,17 @@ public class ApplicationConfig {
         return new HelloWorldServer(50051);
     }
 
+    // 同步client
     @Bean
-    HelloWorldClient helloWorldClient() {
-        return new HelloWorldClient("localhost", 50051);
+    BlockHelloWorldClient blockHelloWorldClient() {
+        return new BlockHelloWorldClient("localhost", 50051);
     }
+
+    // 异步client
+    @Bean
+    AsyncHelloWorldClient asyncHelloWorldClient(){
+        return new AsyncHelloWorldClient("localhost",50051);
+    }
+
 
 }
