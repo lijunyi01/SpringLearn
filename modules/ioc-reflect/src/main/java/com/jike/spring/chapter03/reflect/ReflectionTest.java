@@ -50,7 +50,7 @@ public class ReflectionTest {
         ptypes[1] = Class.forName("java.util.Hashtable");
         Method method = cls.getMethod("testMethod", ptypes);
         Object args[] = new Object[2];
-        args[0] = "hello, my dear!";
+        args[0] = "grpc, my dear!";
         Hashtable<String, String> ht = new Hashtable<String, String>();
         ht.put("name", "极客学院");
         args[1] = ht;

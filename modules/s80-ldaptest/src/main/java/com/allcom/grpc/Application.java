@@ -1,4 +1,4 @@
-package com.allcom.hello;
+package com.allcom.grpc;
 
 /**
  * Created by ljy on 16/7/5.

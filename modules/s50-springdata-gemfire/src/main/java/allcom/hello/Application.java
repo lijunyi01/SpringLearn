@@ -31,7 +31,7 @@ public class Application implements CommandLineRunner {
 
             {
                 setCache(cache);
-                setName("hello");
+                setName("grpc");
                 setClose(false);
             }
         };
