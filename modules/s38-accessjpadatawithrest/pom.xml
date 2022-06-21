@@ -27,7 +27,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.33</version>
+            <version>8.0.28</version>
         </dependency>
         <!--HikariCP 是一个高性能的 JDBC 连接池组件-->
         <dependency>
